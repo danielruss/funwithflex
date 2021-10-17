@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="page_size"></div>
+    <div class="flexpage">
+      <!-- All of the color divs-->
+      <div id="flex_item_1" class="item1">
+        <div id="item1_size" class="size_span"></div>
+        <div class="centerflex">
+          <img src="./20150721_105712.jpg" width="300" height="auto" />
+        </div>
+      </div>
+
+      <!-- all of the text -->
+      <div id="flex_item_2" class="item2">
+        <div id="item2_size" class="size_span"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function updateSizes() {
+      let page_size = document.getElementById("page_size");
+      page_size.innerText = `window inner size (${window.innerWidth} x ${window.innerHeight} ) outer size: (${window.outerWidth} x ${window.outerHeight})`;
+      let items = ["flex_item_1", "flex_item_2"];
+      items.forEach((id) => {
+        let item = document.getElementById(id);
+        let element = item.querySelector("div");
+        element.innerText = `client size (${item.clientWidth} x ${item.clientHeight} ) offset size: (${item.offsetWidth} x ${item.offsetHeight})`;
+      });
+      //      let item1 = document.getElementById("flex_item_1");
+      //      let item2 = document.getElementById("flex_item_2");
+      //      item2.innerText = `client size (${item2.clientWidth} x ${item2.clientHeight} ) offset size: (${item2.offsetWidth} x ${item2.offsetHeight})`;
+    }
+    window.addEventListener("resize", updateSizes);
+    updateSizes();
+  </script>
+</html>

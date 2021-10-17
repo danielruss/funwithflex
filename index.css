@@ -1,0 +1,56 @@
+/* 
+   flex container 
+   note: the margin is the for the entire container, between
+   the items.
+*/
+.flexpage {
+  background-color: aliceblue;
+  display: flex;
+  flex-wrap: wrap;
+
+  min-height: 400px;
+  margin: 10px;
+}
+
+/*  
+   if the  window is small, item1 will become wider
+   and take up the whole width off the page.  As the window 
+   gets bigger any addition space is split between item1 and item 2
+   with item1 taking 25% and item 2 taking 75%
+ */
+.item1 {
+  flex-grow: 1;
+  background-color: hotpink;
+  min-width: 300px;
+}
+
+.item2 {
+  flex-grow: 3;
+  background-color: khaki;
+  min-width: 400px;
+}
+
+/* 
+    I need a flex container inside item1 -- center the image, but not
+    the rest off the text..
+*/
+.centerflex {
+  display: flex;
+  justify-content: center;
+}
+/* 
+I was playing around with the border, margin and padding.
+This section holds styles for BOTH item1 and item2
+
+The items switch at min width + 2*(padding+border)
+*/
+.item1,
+.item2 {
+  border: 5px black solid;
+  padding: 10px;
+  margin: 20px;
+}
+
+#page_size {
+  font-size: x-small;
+}
